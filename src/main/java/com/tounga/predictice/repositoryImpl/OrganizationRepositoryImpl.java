@@ -1,5 +1,7 @@
 package com.tounga.predictice.repositoryImpl;
 
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,8 +19,8 @@ public class OrganizationRepositoryImpl implements OrganizationRepository{
 	private EntityManager entityManager;
 	
 	@Override
-	public OrganizationEntity findOrganizationById(int organizationId) {
-		return entityManager.find(OrganizationEntity.class, organizationId);
+	public Optional<OrganizationEntity> findOrganizationById(int organizationId) {
+		return Optional.ofNullable(entityManager.find(OrganizationEntity.class, organizationId));
 	}
 
 	@Override

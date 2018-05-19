@@ -1,5 +1,7 @@
 package com.tounga.predictice.repositoryImpl;
 
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,8 +19,8 @@ public class UserRepositoryImpl implements UserRepository{
 	private EntityManager entityManager;
 	
 	@Override
-	public UserEntity findUserById(int userId) {
-		return entityManager.find(UserEntity.class, userId);
+	public Optional<UserEntity> findUserById(int userId) {
+		return Optional.ofNullable(entityManager.find(UserEntity.class, userId));
 	}
 
 	@Override

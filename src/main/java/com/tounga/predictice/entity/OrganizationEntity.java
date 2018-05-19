@@ -61,6 +61,19 @@ public class OrganizationEntity {
 	}
 	public void setBillingContact(String billingContact) {
 		this.billingContact = billingContact;
+	}
+	public List<UserEntity> getUsers() {
+		return users;
+	}
+	public void setUsers(List<UserEntity> users) {
+		this.users = users;
+	}
+	public PlanEntity getPlan() {
+		return plan;
+	}
+	public void setPlan(PlanEntity plan) {
+		this.plan = plan;
 	}	
+	
 	
 }

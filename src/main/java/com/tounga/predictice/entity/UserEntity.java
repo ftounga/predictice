@@ -49,4 +49,11 @@ public class UserEntity implements Serializable{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public OrganizationEntity getOrganization() {
+		return organization;
+	}
+	public void setOrganization(OrganizationEntity organization) {
+		this.organization = organization;
+	}
+	
 }

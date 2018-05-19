@@ -27,6 +27,12 @@ public class PlanEntity {
 	@Column(name="engagement")
 	private String engagement;
 	
+	@Column(name="features")
+	private String features;
+	
+	@Column(name="maxUsers")
+	private int maxUsers;
+	
 	public int getPlanId() {
 		return planId;
 	}
@@ -73,13 +79,7 @@ public class PlanEntity {
 
 	public void setMaxUsers(int maxUsers) {
 		this.maxUsers = maxUsers;
-	}
-
-	@Column(name="features")
-	private String features;
-	
-	@Column(name="maxUsers")
-	private int maxUsers;
+	}	
 	
 	
 }

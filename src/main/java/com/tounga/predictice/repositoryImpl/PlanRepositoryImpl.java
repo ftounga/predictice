@@ -1,5 +1,7 @@
 package com.tounga.predictice.repositoryImpl;
 
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,8 +19,8 @@ public class PlanRepositoryImpl implements PlanRepository{
 	private EntityManager entityManager;
 	
 	@Override
-	public PlanEntity findPlanById(int planId) {
-		return entityManager.find(PlanEntity.class, planId);
+	public Optional<PlanEntity> findPlanById(int planId) {
+		return Optional.ofNullable(entityManager.find(PlanEntity.class, planId));
 	}
 
 	@Override
