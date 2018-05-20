@@ -1,5 +1,6 @@
 package com.tounga.predictice.repositoryImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -32,6 +33,13 @@ public class UserRepositoryImpl implements UserRepository{
 	public void deleteUserEntity(int userId) {
 		entityManager.remove(findUserById(userId));
 		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserEntity> findAllUserEntity() {
+		String hql = "FROM UserEntity as user";
+		return (List<UserEntity>) entityManager.createQuery(hql).getResultList();
 	}
 
 }

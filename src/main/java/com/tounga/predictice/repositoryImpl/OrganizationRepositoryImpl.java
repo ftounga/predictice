@@ -1,5 +1,6 @@
 package com.tounga.predictice.repositoryImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
@@ -33,5 +34,10 @@ public class OrganizationRepositoryImpl implements OrganizationRepository{
 		entityManager.persist(organization);
 	}
 
-	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrganizationEntity> findAllOrganizationEntity() {
+		String hql = "FROM OrganizationEntity as organization";
+		return (List<OrganizationEntity>) entityManager.createQuery(hql).getResultList();
+	}
 }
