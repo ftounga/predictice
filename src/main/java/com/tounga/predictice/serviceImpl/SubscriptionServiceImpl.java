@@ -49,7 +49,6 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 		Optional<UserEntity> user = userRepository.findUserById(userID);
 		Optional<OrganizationEntity> organization = user.map(u ->u.getOrganization());
 		return organization.map(o -> o.getPlan().getFeatures());
-
 	}
 
 }

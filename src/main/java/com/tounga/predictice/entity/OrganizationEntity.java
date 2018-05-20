@@ -2,6 +2,7 @@ package com.tounga.predictice.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +35,7 @@ public class OrganizationEntity {
 	@OneToMany(mappedBy = "organization")
     private List<UserEntity> users;
 	
-	@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	@ManyToOne(optional = true, fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "planId")
 	private PlanEntity plan;
 

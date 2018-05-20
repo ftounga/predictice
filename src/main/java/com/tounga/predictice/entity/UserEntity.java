@@ -2,6 +2,7 @@ package com.tounga.predictice.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class UserEntity implements Serializable{
 	@Column(name="lastName")
 	private String lastName;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "organizationID")
 	private OrganizationEntity organization;
 	

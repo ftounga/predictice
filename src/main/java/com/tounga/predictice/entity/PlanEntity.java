@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 
 @Entity
 @Table(name="Plan")
@@ -30,6 +31,7 @@ public class PlanEntity {
 	@Column(name="features")
 	private String features;
 	
+	@Max(10)
 	@Column(name="maxUsers")
 	private int maxUsers;
 	
