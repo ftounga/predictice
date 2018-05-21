@@ -10,6 +10,7 @@ public class OrganizationDTO {
 	private String description;
 	private List<UserDTO> users;
 	private PlanDTO plan;
+	private CreditCardDTO creditCard;
 	
 	public int getOrganizationId() {
 		return organizationId;
@@ -46,6 +47,12 @@ public class OrganizationDTO {
 	}
 	public void setPlan(PlanDTO plan) {
 		this.plan = plan;
+	}
+	public CreditCardDTO getCreditCard() {
+		return creditCard;
+	}
+	public void setCreditCard(CreditCardDTO creditCard) {
+		this.creditCard = creditCard;
 	}	
 	
 }

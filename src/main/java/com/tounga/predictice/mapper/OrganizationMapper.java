@@ -17,6 +17,7 @@ public class OrganizationMapper {
 		if (entity.getPlan() != null){
 			dto.setPlan(PlanMapper.buildPlanDTOFromPlanEntity(entity.getPlan()));			
 		}
+		dto.setCreditCard(CreditCardMapper.buildCreditCardDTOFromEntity(entity.getCreditCard()));
 		return dto;	
 	}
 }

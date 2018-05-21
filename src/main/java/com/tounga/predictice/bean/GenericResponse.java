@@ -1,4 +1,4 @@
-package com.tounga.predictice.response;
+package com.tounga.predictice.bean;
 
 public class GenericResponse<T> {
 

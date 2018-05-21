@@ -38,6 +38,10 @@ public class OrganizationEntity {
 	@ManyToOne(optional = true, fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "planId")
 	private PlanEntity plan;
+	
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "creditCardId")
+	private CreditCardEntity creditCard;
 
 	public int getOrganizationID() {
 		return organizationID;
@@ -74,7 +78,11 @@ public class OrganizationEntity {
 	}
 	public void setPlan(PlanEntity plan) {
 		this.plan = plan;
+	}
+	public CreditCardEntity getCreditCard() {
+		return creditCard;
+	}
+	public void setCreditCard(CreditCardEntity creditCard) {
+		this.creditCard = creditCard;
 	}	
-	
-	
 }

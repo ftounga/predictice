@@ -1,4 +1,4 @@
-package com.tounga.predictice.exception;
+package com.tounga.predictice.bean;
 
 public class ErrorResponse {
 	private int code;
