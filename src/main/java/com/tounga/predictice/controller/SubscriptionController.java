@@ -67,7 +67,7 @@ public class SubscriptionController {
 		Optional<String> features = subscriptionService.getFeaturesByUserId(userId);
 		GenericResponse<String> response = new GenericResponse<>();
 		if(features.isPresent()){
-			response.setMessge("The subscription succed");
+			response.setMessge("The features availables for this user");
 			response.setData(features.get());
 			ResponseEntity<GenericResponse<String>> result = new ResponseEntity<>(response,HttpStatus.OK);
 			return result;

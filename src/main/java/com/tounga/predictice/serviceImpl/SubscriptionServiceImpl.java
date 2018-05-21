@@ -40,10 +40,13 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	public void subscribe(int organizationId, int planId) {
 		OrganizationEntity organization = organizationRepository.findOrganizationById(organizationId).orElseThrow(
 				() -> new BusinessException(BusinessErrorCode.ORGANIZATION_NOT_FOUND, HttpStatus.NOT_FOUND));
-		PlanEntity plan = planRepository.findPlanById(planId).orElseThrow(()-> new BusinessException(BusinessErrorCode.PLAN_NOT_FOUND, HttpStatus.NOT_FOUND));
-	
-			organization.setPlan(plan);
-			organizationRepository.saveOrganizationEntity(organization);
+		PlanEntity plan = planRepository.findPlanById(planId)
+				.orElseThrow(() -> new BusinessException(BusinessErrorCode.PLAN_NOT_FOUND, HttpStatus.NOT_FOUND));
+		if(organization.getPlan() !=null && organization.getPlan().getPlanId() == plan.getPlanId()){
+			throw new BusinessException(BusinessErrorCode.ALREADY_ATTACHED_PLAN, HttpStatus.BAD_REQUEST);
+		}
+		organization.setPlan(plan);
+		organizationRepository.saveOrganizationEntity(organization);
 
 	}
 
@@ -51,16 +54,19 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 	public void unsubscribe(int organizationId) {
 		OrganizationEntity organization = organizationRepository.findOrganizationById(organizationId).orElseThrow(
 				() -> new BusinessException(BusinessErrorCode.ORGANIZATION_NOT_FOUND, HttpStatus.NOT_FOUND));
-			organization.setPlan(null);
-			organizationRepository.saveOrganizationEntity(organization);
+		if (organization.getPlan() == null) {
+			throw new BusinessException(BusinessErrorCode.NO_PLAN_ATTACHED, HttpStatus.BAD_REQUEST);
+		}
+		organization.setPlan(null);
+		organizationRepository.saveOrganizationEntity(organization);
 	}
 
 	@Override
 	public Optional<String> getFeaturesByUserId(int userID) {
-		UserEntity user = userRepository.findUserById(userID).orElseThrow(
-				() -> new BusinessException(BusinessErrorCode.USER_NOT_FOUND, HttpStatus.NOT_FOUND));
+		UserEntity user = userRepository.findUserById(userID)
+				.orElseThrow(() -> new BusinessException(BusinessErrorCode.USER_NOT_FOUND, HttpStatus.NOT_FOUND));
 		OrganizationEntity organization = user.getOrganization();
-		if(organization.getPlan() != null){
+		if (organization.getPlan() != null) {
 			return Optional.of(organization.getPlan().getFeatures());
 		}
 		return Optional.empty();
