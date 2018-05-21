@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.tounga.predictice.enumeration.BusinessErrorCode;
 
-//@ControllerAdvice
+@ControllerAdvice
 public class PredicticeControllerAdvice {
 
 	@Autowired
