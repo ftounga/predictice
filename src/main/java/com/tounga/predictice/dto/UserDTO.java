@@ -1,11 +1,17 @@
 package com.tounga.predictice.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class UserDTO {
 
 	private int userId;
+	@NotBlank
 	private String firstName;
+	@NotBlank
 	private String lastName;
-	private String organizationName;
+	@NotNull
+	private int organizationId;
 	
 	public int getUserId() {
 		return userId;
@@ -25,11 +31,11 @@ public class UserDTO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public String getOrganizationName() {
-		return organizationName;
+	public int getOrganizationId() {
+		return organizationId;
 	}
-	public void setOrganizationName(String organizationName) {
-		this.organizationName = organizationName;
+	public void setOrganizationId(int organizationId) {
+		this.organizationId = organizationId;
 	}
 
 	

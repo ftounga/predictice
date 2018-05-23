@@ -2,12 +2,21 @@ package com.tounga.predictice.dto;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 public class OrganizationDTO {
 
 	private int organizationId;
+	
+	@NotBlank
 	private String name;
+	
+	@NotBlank
 	private String billingContact;
+	
+	@NotBlank
 	private String description;
+	
 	private List<UserDTO> users;
 	private PlanDTO plan;
 	private CreditCardDTO creditCard;

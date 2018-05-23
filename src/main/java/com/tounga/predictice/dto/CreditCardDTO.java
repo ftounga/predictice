@@ -1,21 +1,23 @@
 package com.tounga.predictice.dto;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class CreditCardDTO {
 
 	
 	private int creditCardId;
 	
+	@NotBlank
 	private String cardNumber;
 	
+	@NotNull
 	private int exp_month;
 	
+	@NotNull
 	private int exp_year;
 	
+	@NotBlank
 	private String cvc;
 
 	public int getCreditCardId() {

@@ -16,4 +16,13 @@ public class CreditCardMapper {
 		return dto;
 
 	}
+
+	public static CreditCardEntity buildCreditCardEntityFromDTO(CreditCardDTO dto) {
+		CreditCardEntity entity = new CreditCardEntity();
+		entity.setCardNumber(dto.getCardNumber());
+		entity.setCvc(dto.getCvc());
+		entity.setExp_month(dto.getExp_month());
+		entity.setExp_year(dto.getExp_year());
+		return entity;
+	}
 }

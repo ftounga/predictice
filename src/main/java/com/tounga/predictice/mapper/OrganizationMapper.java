@@ -20,4 +20,12 @@ public class OrganizationMapper {
 		dto.setCreditCard(CreditCardMapper.buildCreditCardDTOFromEntity(entity.getCreditCard()));
 		return dto;	
 	}
+
+	public static OrganizationEntity buildOrganizationEntityFromDTOWithNoPlanAndCreditCard(OrganizationDTO dto) {
+		OrganizationEntity entity = new OrganizationEntity();
+		entity.setBillingContact(dto.getBillingContact());
+		entity.setDescription(dto.getDescription());
+		entity.setName(dto.getName());		
+		return entity;
+	}
 }

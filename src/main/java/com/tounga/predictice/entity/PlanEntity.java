@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Plan")
@@ -31,7 +32,7 @@ public class PlanEntity {
 	@Column(name="features")
 	private String features;
 	
-	@Max(10)
+	@NotNull
 	@Column(name="maxUsers")
 	private int maxUsers;
 	

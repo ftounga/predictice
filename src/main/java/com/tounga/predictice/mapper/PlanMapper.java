@@ -15,4 +15,14 @@ public class PlanMapper {
 		dto.setPrice(entity.getPrice());
 		return dto;
 	}
+
+	public static PlanEntity buildPlanEntityFromDto(PlanDTO plan) {
+		PlanEntity entity = new PlanEntity();
+		entity.setEngagement(plan.getEngagement());
+		entity.setFeatures(plan.getFeatures());
+		entity.setMaxUsers(plan.getMaxUsers());
+		entity.setName(plan.getName());
+		entity.setPrice(plan.getPrice());
+		return entity;
+	}
 }
