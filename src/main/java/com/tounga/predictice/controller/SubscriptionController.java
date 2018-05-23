@@ -26,12 +26,6 @@ import com.tounga.predictice.service.SubscriptionService;
 
 @RestController
 public class SubscriptionController {
-
-	/*@Autowired
-	private UserRepository userRepository;*/
-	
-	@Autowired
-	private BackOfficeService backOffice;
 	
 	@Autowired
 	private SubscriptionService subscriptionService;
